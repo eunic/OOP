@@ -13,10 +13,7 @@ class  shape (object):
 
 class circle(shape):
 	
-	def __init__(self, r,c):if self.base, self.height, self.d2 < 1 :
-
-			return "Invalid radius"
-		else:
+	def __init__(self, r,c):
 		self.radius = r
 		self.color = c
 
@@ -85,7 +82,7 @@ class triangle(shape):
 			return "Invalid radius"
 		else:
 
-			return self.height+ self.base+self.diagnol.
+			return self.height+ self.base+self.d2.
 
 		
 		
