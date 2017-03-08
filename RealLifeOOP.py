@@ -1,4 +1,5 @@
 class BankAccount(object):
+
     def __init__(self):
 
         pass
@@ -11,56 +12,143 @@ class BankAccount(object):
 
         pass
 
+    def getBalance(self):
+
+        pass 
+
+
 
 class SavingsAccount(BankAccount):
 
     def __init__(self):
         self.balance = 500
 
-    def deposit(self,cash_deposited):
+    def deposit(self):
+
+        cash_deposited = input("Please enter Amount to Deposit")
 
         if cash_deposited < 0:
 
-            return "Invalid deposit amount"
+            print("Invalid deposit amount")
 
         else:
             self.balance += cash_deposited
-            return self.balance
 
-    def withdraw(self, amount):
+            print("You have deposited %d and your balance is now %d"%(cash_deposited, self.balance))
+
+
+    def withdraw(self):
+
+        amount = input("Please enter Amount to withdraw")
+
         if amount < 0:
-            return "Invalid withdraw amount"
+
+            print("Invalid withdraw amount")
+
         elif amount > self.balance:
-            return "Cannot withdraw beyond the current account balance"
+
+            print("Cannot withdraw beyond the current account balance")
+
         else:
             self.balance -= amount
+
             if self.balance < 500:
-                return "Cannot withdraw beyond the minimum account balance"
+
+                print("Cannot withdraw beyond the minimum account balance 500")
+
             else:
-                return self.balance
+
+                print("You have deposited %d and your balance is now %d"%(cash_deposited, self.balance))
+
+    def getBalance(self):
+
+        print("your balance is now %d"%(self.balance))
+
 
 
 class CurrentAccount(BankAccount):
 
     def __init__(self):
+
         self.balance = 0
 
-    def deposit(self,amount):
+    def deposit(self):
+
+        amount = input("Please enter Amount to Deposit")
+
         if amount < 0:
 
-            return "Invalid deposit amount"
+            print("Invalid deposit amount")
 
         else:
             self.balance += amount
 
-            return self.balance
+            print("You have deposited %d and your balance is now %d"%(amount, self.balance))
 
-    def withdraw(self,withdrawamount):
+    def withdraw(self):
+
+        withdrawamount = input("Please enter Amount to withdraw")
 
         if withdrawamount < 0:
-            return "Invalid withdraw amount"
+
+            print("Invalid withdraw amount")
+
         elif withdrawamount > self.balance:
-            return "Cannot withdraw beyond the current account balance"
+
+            print("Cannot withdraw beyond the current account balance")
+
         else:
+
             self.balance -= withdrawamount
-            return self.balance
+
+            print("You have deposited %d and your balance is now %d"%(amount, self.balance))
+
+    def getBalance(self):
+
+        print("your balance is now %d"%(self.balance))
+
+
+account = input("please choose 1 for SavingsAccount and 2 for CurrentAccount")
+
+if account == 1:
+
+    s = SavingsAccount()
+
+    choose = input("please choose 1 for deposit and 2 for withdraw and 3 for balance Inquiry")
+
+    if choose == 1:
+
+        s.deposit()
+    elif choose == 2:
+
+        s.withdraw()
+
+    elif choose == 3:
+        s.getBalance()
+
+    else:
+        print("Incorrect Entry")
+
+
+elif account == 2:
+
+    c= CurrentAccount()
+
+    choose = input("please choose 1 for deposit and 2 for withdraw and 3 for balance Inquiry")
+
+    if choose == 1:
+
+        c.deposit()
+    elif choose == 2:
+
+        c.withdraw()
+
+    elif choose == 3:
+        c.getBalance()
+
+    else:
+        print("Incorrect Entry")
+    
+
+else:
+    print("Incorrect Entry")
